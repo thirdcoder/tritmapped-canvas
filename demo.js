@@ -33,6 +33,12 @@ t.writeTrits(toTritmap9x14(-fromUnicode('T')), 9, 14, 1, 0);
 var cursorX = 0, cursorY = 0;
 window.addEventListener('keydown', function(ev) {
   console.log(ev);
+
+  if (ev.metaKey) {
+    // don't intercept cmd-key, allow e.g. cmd-r to reload browser
+    return;
+  }
+
   ev.preventDefault(); // allow intercepting ctrl-key without executing browser default
 
   var tt = fromEvent(ev);
