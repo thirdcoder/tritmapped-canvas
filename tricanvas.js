@@ -85,7 +85,7 @@ Tricanvas.prototype.writeTrits = function(bts, width, height, rowStart, colStart
     var trit = BT_DIGIT_TO_N[bts.charAt(i)];
     if (trit === undefined) throw new Error('writeTrits('+bts+'): invalid trit: '+trit);
 
-    var row = (i / width)|0 + height*rowStart;
+    var row = ((i / width)|0) + height*rowStart;
     var col = i % width + width*colStart;
     console.log(i,row,col,trit);
     this.writeTrit(trit, col, row);

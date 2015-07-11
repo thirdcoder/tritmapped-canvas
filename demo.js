@@ -22,6 +22,7 @@ for (var i = 0; i < 100; ++i)
 t.writeTrits(toTritmap9x14(-75), 9, 14, 0, 0);
 t.writeTrits(toTritmap9x14(fromUnicode('☺')), 9, 14, 0, 1);
 t.writeTrits(toTritmap9x14(-fromUnicode('X')), 9, 14, 0, 2);
+t.writeTrits(toTritmap9x14(-fromUnicode('T')), 9, 14, 1, 0);
 //t.writeTrits('i1i1i1i1i1i1i1i1iii1i1i1i1i1i1i1i1iii1i1i1i1i1i1i1i1iii1i1i1i1i1i1i1i1iii1i1i1i1i1i1i1i1iii1i1i1i1i1i1i1i1iii1i1i1i1i1i1i1i1ii',9);
 //t.writeTrits('i0i0i0i0i0i0i0i0iii0i0i0i0i0i0i0i0iii0i0i0i0i0i0i0i0iii0i0i0i0i0i0i0i0iii0i0i0i0i0i0i0i0iii0i0i0i0i0i0i0i0iii0i0i0i0i0i0i0i0ii',9);
 //t.writeTrits('i1i1i1i1i',9);
