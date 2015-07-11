@@ -4,6 +4,7 @@ var Tricanvas = require('./');
 
 var toTritmap9x14 = require('trit-text').toTritmap9x14;
 var fromUnicode = require('trit-text').fromUnicode;
+var fromEvent = require('trit-text').fromEvent;
 
 window.t = Tricanvas();
 console.log(t);
@@ -29,39 +30,14 @@ t.writeTrits(toTritmap9x14(-fromUnicode('T')), 9, 14, 1, 0);
 //t.writeTrits('1',9);
 //t.writeTrits('iii',9,14);
 
-// Option characters for Mac keyboard input
-var optmap = {
-  'å': '☺', // opt-a
-  '∫': '☻', // opt-b
-  'ç': '♥', // opt-c
-  '∂': '♦', // opt-d TODO: ◊? opt-shift-v, but different
-  //'é': '♣', // opt-e its a combining character :(
-  'ƒ': '♠', // opt-f
-  // TODO
-  '¯': '‾', // opt-shift-comma, macron but change to overline TODO: or option-dash?
-};
-
 var cursorX = 0, cursorY = 0;
 window.addEventListener('keypress', function(ev) {
   console.log(ev);
-  var unichar = String.fromCharCode(ev.charCode); // TODO: comprehensive keymap
 
-  if (!unichar) {
-    unichar = '☺';
-  }
-
-  if (optmap[unichar]) unichar = optmap[unichar];
-
-  var tt = fromUnicode(unichar);
+  var tt = fromEvent(ev);
   if (tt === null) {
     tt = 75;
   }
-
-  if (ev.keyCode === 13) { // ASCII enter/newline
-    tt = 12; // trit-text newline
-  }
-
-  if (ev.metaKey || ev.ctrlKey) tt = -tt; // TODO: other key
 
   console.log(cursorX,cursorY);
   t.writeTrits(toTritmap9x14(tt), 9, 14, cursorY, cursorX);
