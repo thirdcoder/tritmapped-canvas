@@ -15,7 +15,7 @@
     "display"
   ],
   "scripts": {
-    "start": "wzrd tricanvas.js"
+    "start": "wzrd demo.js"
   },
   "dependencies": {}
 }
