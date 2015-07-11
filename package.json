@@ -1,0 +1,21 @@
+{
+  "name": "tritmapped-canvas",
+  "description": "tricolor trit-mapped canvas display",
+  "version": "0.0.1",
+  "main": "tricanvas.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:/tritmapped-canvas.git"
+  },
+  "keywords": [
+    "ternary",
+    "base3",
+    "tritmapped-canvas",
+    "cavas",
+    "display"
+  ],
+  "scripts": {
+    "start": "wzrd tricanvas.js"
+  },
+  "dependencies": {}
+}
