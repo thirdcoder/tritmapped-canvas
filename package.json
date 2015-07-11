@@ -21,5 +21,8 @@
     "balanced-ternary": "*",
     "pad": "^0.1.0",
     "trit-getset": "*"
+  },
+  "devDependencies": {
+    "raf": "^3.0.0"
   }
 }
