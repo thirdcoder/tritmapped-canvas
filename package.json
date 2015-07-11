@@ -18,6 +18,7 @@
     "start": "wzrd demo.js"
   },
   "dependencies": {
-    "balanced-ternary": "*"
+    "balanced-ternary": "*",
+    "trit-getset": "*"
   }
 }

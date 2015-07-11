@@ -3,6 +3,7 @@
 var n2bts = require('balanced-ternary').n2bts;
 var BT_DIGIT_TO_N = require('balanced-ternary').BT_DIGIT_TO_N;
 var TRITS_PER_TRYTE = 5; // 5-trit trytes backed by 8-bit bytes Int8Array
+var set_trit = require('trit-getset').set_trit;
 
 function Tricanvas(opts) {
   opts = opts || {};
@@ -64,6 +65,21 @@ Tricanvas.prototype.refresh = function() {
   console.log(this.imageData);
 
   this.context.putImageData(this.imageData, 0, 0);
+};
+
+Tricanvas.prototype.writeTrit = function(trit, x, y) {
+  var index = y * this.width + x;
+
+  var tryteIndex = (index / TRITS_PER_TRYTE)|0;
+  var tritIndex = index % TRITS_PER_TRYTE;
+
+  this.tritmap[tryteIndex] = set_trit(this.tritmap[tryteIndex], tritIndex, trit);
+};
+
+Tricanvas.prototype.writeTrits = function(bt, width, height) {
+  for (var i = 0; i < bt.length; ++i) {
+    // TODO
+  }
 };
 
 module.exports = function(opts) {
