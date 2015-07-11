@@ -74,19 +74,19 @@ Tricanvas.prototype.writeTrit = function(trit, x, y) {
   var tryteIndex = (index / TRITS_PER_TRYTE)|0;
   var tritIndex = TRITS_PER_TRYTE - (index % TRITS_PER_TRYTE) - 1;
 
-  console.log('before:'+n2bts(this.tritmap[tryteIndex]));
   this.tritmap[tryteIndex] = set_trit(this.tritmap[tryteIndex], tritIndex, trit);
-  console.log('after: '+n2bts(this.tritmap[tryteIndex])+', set trit='+trit+' in '+tritIndex);
-  console.log('       43210');
 };
 
-Tricanvas.prototype.writeTrits = function(bts, width) {
+Tricanvas.prototype.writeTrits = function(bts, width, height, rowStart, colStart) {
+  rowStart = rowStart || 0;
+  colStart = colStart || 0;
+
   for (var i = 0; i < bts.length; ++i) {
     var trit = BT_DIGIT_TO_N[bts.charAt(i)];
     if (trit === undefined) throw new Error('writeTrits('+bts+'): invalid trit: '+trit);
 
-    var row = (i / width)|0;
-    var col = i % width;
+    var row = (i / width)|0 + height*rowStart;
+    var col = i % width + width*colStart;
     console.log(i,row,col,trit);
     this.writeTrit(trit, col, row);
   }
