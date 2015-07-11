@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "balanced-ternary": "*",
-    "trit-text": "*",
-    "trit-getset": "*"
+    "pad": "^0.1.0",
+    "trit-getset": "*",
+    "trit-text": "*"
   }
 }
