@@ -43,6 +43,10 @@ window.addEventListener('keypress', function(ev) {
     tt = 75;
   }
 
+  if (ev.keyCode === 13) { // ASCII enter/newline
+    tt = 12; // trit-text newline
+  }
+
   if (ev.metaKey || ev.altKey || ev.ctrlKey || ev.altKey) tt = -tt; // TODO: other key
 
   console.log(cursorX,cursorY);
@@ -50,6 +54,12 @@ window.addEventListener('keypress', function(ev) {
   t.refresh();
 
   ++cursorX;
+
+  if (tt == 12) { // trit-text newline
+    cursorY++;
+    cursorX = 0;
+  }
+
   if (cursorX >= t.width/9) {
     cursorX = 0;
     ++cursorY;
