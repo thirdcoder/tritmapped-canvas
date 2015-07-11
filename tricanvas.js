@@ -8,16 +8,20 @@ function Tricanvas(opts) {
   opts = opts || {};
   this.width = opts.width || 405;
   this.height = opts.height || this.width;
+  this.scaleW = 2;
+  this.scaleH = 2;
   this.canvas = opts.canvas;
   if (!this.canvas) {
     this.canvas = document.createElement('canvas');
-    this.canvas.width = this.width;
-    this.canvas.height = this.height;
+    this.canvas.style.width = this.width * this.scaleW + 'px';
+    this.canvas.style.height = this.height * this.scaleH + 'px';
     this.canvas.style.border = this.border || '1px dotted black';
     document.body.appendChild(this.canvas);
   }
 
   this.context = this.canvas.getContext('2d');
+  this.context.width = this.width;
+  this.context.height = this.height;
   this.imageData = this.context.createImageData(this.width, this.height);
 
   this.tritCount = this.width * this.height;
