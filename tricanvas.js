@@ -71,9 +71,9 @@ Tricanvas.prototype.writeTrit = function(trit, x, y) {
   var index = y * this.width + x;
 
   var tryteIndex = (index / TRITS_PER_TRYTE)|0;
-  var tritIndex = index % TRITS_PER_TRYTE;
+  var tritIndex = TRITS_PER_TRYTE - (index % TRITS_PER_TRYTE) - 1;
 
-  this.tritmap[tryteIndex] = set_trit(this.tritmap[tryteIndex], TRITS_PER_TRYTE - tritIndex, trit);
+  this.tritmap[tryteIndex] = set_trit(this.tritmap[tryteIndex], tritIndex, trit);
 };
 
 Tricanvas.prototype.writeTrits = function(bts, width) {

@@ -18,7 +18,7 @@ for (var i = 0; i < 100; ++i)
 
 t.writeTrits('i1i1i1i1i1i1i1i1iii1i1i1i1i1i1i1i1iii1i1i1i1i1i1i1i1iii1i1i1i1i1i1i1i1iii1i1i1i1i1i1i1i1iii1i1i1i1i1i1i1i1iii1i1i1i1i1i1i1i1ii',9,14);
 //t.writeTrits('i1i1i1i1i',9);
-//  t.writeTrits('1',9);
+//t.writeTrits('1',9);
 //t.writeTrits('iii',9,14);
 
   global.t = t;
