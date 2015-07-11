@@ -43,7 +43,8 @@ window.addEventListener('keydown', function(ev) {
 
   var tt = fromEvent(ev);
   if (tt === null) {
-    tt = 75;
+    // no assigned key, ignore
+    return;
   }
 
   console.log(cursorX,cursorY);
