@@ -13,8 +13,13 @@ function Tricanvas(opts) {
     document.body.appendChild(this.canvas);
   }
 
-  this.ctx = this.canvas.getContext('2d');
+  this.context = this.canvas.getContext('2d');
+  this.imageData = this.context.createImageData(this.width, this.height);
 }
+
+Tricanvas.prototype.refresh = function() {
+  this.context.putImageData(this.imageData, 0, 0);
+};
 
 module.exports = function(opts) {
   return new Tricanvas(opts);
