@@ -1,5 +1,9 @@
 'use strict';
 
+var n2bts = require('balanced-ternary').n2bts;
+var BT_DIGIT_TO_N = require('balanced-ternary').BT_DIGIT_TO_N;
+var TRITS_PER_TRYTE = 5; // 5-trit trytes backed by 8-bit bytes Int8Array
+
 function Tricanvas(opts) {
   opts = opts || {};
   this.width = opts.width || 405;
@@ -15,9 +19,50 @@ function Tricanvas(opts) {
 
   this.context = this.canvas.getContext('2d');
   this.imageData = this.context.createImageData(this.width, this.height);
+
+  this.tritCount = this.width * this.height;
+  this.tryteCount = this.tritCount / TRITS_PER_TRYTE / TRITS_PER_TRYTE;
+  if ((this.tryteCount|0) !== this.tryteCount) throw new Error('non-integral tryte count: ' + tryteCount + ', trits='+this.tritCount);
+  this.tritmap = new Int8Array(this.tryteCount);
 }
 
 Tricanvas.prototype.refresh = function() {
+  for (var i = 0; i < this.tryteCount; ++i) {
+    var tryte = this.tritmap[i];
+    var trits = n2bts(tryte);
+
+    for (var j = 0; j < TRITS_PER_TRYTE; ++j) {
+      var index = i * TRITS_PER_TRYTE + j;
+
+      var trit = BT_DIGIT_TO_N[trits.charAt(j)];
+
+      var r,g,b,a;
+
+      if (trit === -1) {
+        r = 255;
+        g = 0;
+        b = 0;
+        a = 255;
+      } else if (trit === 1) {
+        r = 0;
+        g = 255;
+        b = 0;
+        a = 255;
+      } else {
+        r = 0;
+        g = 0;
+        b = 0;
+        a = 0;
+      }
+
+      this.imageData.data[index * 4 + 0] = r;
+      this.imageData.data[index * 4 + 1] = g;
+      this.imageData.data[index * 4 + 2] = b;
+      this.imageData.data[index * 4 + 3] = a;
+    }
+  }
+  console.log(this.imageData);
+
   this.context.putImageData(this.imageData, 0, 0);
 };
 

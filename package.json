@@ -17,5 +17,7 @@
   "scripts": {
     "start": "wzrd demo.js"
   },
-  "dependencies": {}
+  "dependencies": {
+    "balanced-ternary": "*"
+  }
 }
