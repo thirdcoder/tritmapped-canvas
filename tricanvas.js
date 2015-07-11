@@ -24,6 +24,10 @@ function Tricanvas(opts) {
   this.tryteCount = this.tritCount / TRITS_PER_TRYTE / TRITS_PER_TRYTE;
   if ((this.tryteCount|0) !== this.tryteCount) throw new Error('non-integral tryte count: ' + tryteCount + ', trits='+this.tritCount);
   this.tritmap = new Int8Array(this.tryteCount);
+
+  this.negativeColor = [255, 0, 0, 255];    // red
+  this.zeroColor = [0, 0, 0, 0];            // transparent black
+  this.positiveColor = [0, 255, 0, 255];    // green
 }
 
 Tricanvas.prototype.refresh = function() {
@@ -36,29 +40,20 @@ Tricanvas.prototype.refresh = function() {
 
       var trit = BT_DIGIT_TO_N[trits.charAt(j)];
 
-      var r,g,b,a;
+      var color;
 
       if (trit === -1) {
-        r = 255;
-        g = 0;
-        b = 0;
-        a = 255;
+        color = this.negativeColor;
       } else if (trit === 1) {
-        r = 0;
-        g = 255;
-        b = 0;
-        a = 255;
+        color = this.positiveColor;
       } else {
-        r = 0;
-        g = 0;
-        b = 0;
-        a = 0;
+        color = this.zeroColor;
       }
 
-      this.imageData.data[index * 4 + 0] = r;
-      this.imageData.data[index * 4 + 1] = g;
-      this.imageData.data[index * 4 + 2] = b;
-      this.imageData.data[index * 4 + 3] = a;
+      this.imageData.data[index * 4 + 0] = color[0];
+      this.imageData.data[index * 4 + 1] = color[1];
+      this.imageData.data[index * 4 + 2] = color[2];
+      this.imageData.data[index * 4 + 3] = color[3];
     }
   }
   console.log(this.imageData);
