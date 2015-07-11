@@ -8,7 +8,7 @@ function Tricanvas(opts) {
   opts = opts || {};
   this.width = opts.width || 405;
   this.height = opts.height || this.width;
-  this.scaleW = 2;
+  this.scaleW = 4;
   this.scaleH = 2;
   this.canvas = opts.canvas;
   if (!this.canvas) {
@@ -16,6 +16,7 @@ function Tricanvas(opts) {
     this.canvas.style.width = this.width * this.scaleW + 'px';
     this.canvas.style.height = this.height * this.scaleH + 'px';
     this.canvas.style.border = this.border || '1px dotted black';
+    this.canvas.style.imageRendering = 'pixelated';
     document.body.appendChild(this.canvas);
   }
 
