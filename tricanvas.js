@@ -63,7 +63,7 @@ Tricanvas.prototype.refresh = function() {
       this.imageData.data[index * 4 + 3] = color[3];
     }
   }
-  console.log(this.imageData);
+  //console.log(this.imageData);
 
   this.context.putImageData(this.imageData, 0, 0);
 };
@@ -87,7 +87,7 @@ Tricanvas.prototype.writeTrits = function(bts, width, height, rowStart, colStart
 
     var row = ((i / width)|0) + height*rowStart;
     var col = i % width + width*colStart;
-    console.log(i,row,col,trit);
+    //console.log(i,row,col,trit);
     this.writeTrit(trit, col, row);
   }
 };
