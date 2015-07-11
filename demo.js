@@ -34,10 +34,11 @@ var optmap = {
   'å': '☺', // opt-a
   '∫': '☻', // opt-b
   'ç': '♥', // opt-c
-  '∂': '♦', // opt-d
+  '∂': '♦', // opt-d TODO: ◊? opt-shift-v, but different
   //'é': '♣', // opt-e its a combining character :(
   'ƒ': '♠', // opt-f
   // TODO
+  '¯': '‾', // opt-shift-comma, macron but change to overline TODO: or option-dash?
 };
 
 var cursorX = 0, cursorY = 0;
