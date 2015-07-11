@@ -73,7 +73,7 @@ Tricanvas.prototype.writeTrit = function(trit, x, y) {
   var tryteIndex = (index / TRITS_PER_TRYTE)|0;
   var tritIndex = index % TRITS_PER_TRYTE;
 
-  this.tritmap[tryteIndex] = set_trit(this.tritmap[tryteIndex], tritIndex, trit);
+  this.tritmap[tryteIndex] = set_trit(this.tritmap[tryteIndex], TRITS_PER_TRYTE - tritIndex, trit);
 };
 
 Tricanvas.prototype.writeTrits = function(bts, width) {
@@ -83,6 +83,7 @@ Tricanvas.prototype.writeTrits = function(bts, width) {
 
     var row = (i / width)|0;
     var col = i % width;
+    console.log(i,row,col,trit);
     this.writeTrit(trit, col, row);
   }
 };
