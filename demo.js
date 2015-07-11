@@ -31,8 +31,9 @@ t.writeTrits(toTritmap9x14(-fromUnicode('T')), 9, 14, 1, 0);
 //t.writeTrits('iii',9,14);
 
 var cursorX = 0, cursorY = 0;
-window.addEventListener('keypress', function(ev) {
+window.addEventListener('keydown', function(ev) {
   console.log(ev);
+  ev.preventDefault(); // allow intercepting ctrl-key without executing browser default
 
   var tt = fromEvent(ev);
   if (tt === null) {
