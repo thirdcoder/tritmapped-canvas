@@ -29,6 +29,17 @@ t.writeTrits(toTritmap9x14(-fromUnicode('T')), 9, 14, 1, 0);
 //t.writeTrits('1',9);
 //t.writeTrits('iii',9,14);
 
+// Option characters for Mac keyboard input
+var optmap = {
+  'å': '☺', // opt-a
+  '∫': '☻', // opt-b
+  'ç': '♥', // opt-c
+  '∂': '♦', // opt-d
+  //'é': '♣', // opt-e its a combining character :(
+  'ƒ': '♠', // opt-f
+  // TODO
+};
+
 var cursorX = 0, cursorY = 0;
 window.addEventListener('keypress', function(ev) {
   console.log(ev);
@@ -37,6 +48,8 @@ window.addEventListener('keypress', function(ev) {
   if (!unichar) {
     unichar = '☺';
   }
+
+  if (optmap[unichar]) unichar = optmap[unichar];
 
   var tt = fromUnicode(unichar);
   if (tt === null) {
@@ -47,7 +60,7 @@ window.addEventListener('keypress', function(ev) {
     tt = 12; // trit-text newline
   }
 
-  if (ev.metaKey || ev.altKey || ev.ctrlKey || ev.altKey) tt = -tt; // TODO: other key
+  if (ev.metaKey || ev.ctrlKey) tt = -tt; // TODO: other key
 
   console.log(cursorX,cursorY);
   t.writeTrits(toTritmap9x14(tt), 9, 14, cursorY, cursorX);
