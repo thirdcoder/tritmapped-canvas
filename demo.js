@@ -11,7 +11,12 @@ for (var i = 0; i < 81*81*5; ++i)
   //t.tritmap[i] = 80; // 1000i
 */
 
+/*
 for (var i = 0; i < 100; ++i)
   t.writeTrit(-1, i, i);
+  */
+
+t.writeTrits('i1i1i1i1i1i1i1i1iii1i1i1i1i1i1i1i1iii1i1i1i1i1i1i1i1iii1i1i1i1i1i1i1i1iii1i1i1i1i1i1i1i1iii1i1i1i1i1i1i1i1iii1i1i1i1i1i1i1i1ii',9,14);
+//t.writeTrits('iii',9,14);
 
 t.refresh();

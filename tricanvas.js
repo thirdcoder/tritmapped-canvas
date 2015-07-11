@@ -76,9 +76,14 @@ Tricanvas.prototype.writeTrit = function(trit, x, y) {
   this.tritmap[tryteIndex] = set_trit(this.tritmap[tryteIndex], tritIndex, trit);
 };
 
-Tricanvas.prototype.writeTrits = function(bt, width, height) {
-  for (var i = 0; i < bt.length; ++i) {
-    // TODO
+Tricanvas.prototype.writeTrits = function(bts, width) {
+  for (var i = 0; i < bts.length; ++i) {
+    var trit = BT_DIGIT_TO_N[bts.charAt(i)];
+    if (trit === undefined) throw new Error('writeTrits('+bts+'): invalid trit: '+trit);
+
+    var row = (i / width)|0;
+    var col = i % width;
+    this.writeTrit(trit, row, col);
   }
 };
 
