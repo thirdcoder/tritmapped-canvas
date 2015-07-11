@@ -17,7 +17,7 @@ function Tricanvas(opts) {
     this.canvas = document.createElement('canvas');
     this.canvas.style.width = this.width * this.scaleW + 'px';
     this.canvas.style.height = this.height * this.scaleH + 'px';
-    this.canvas.style.border = this.border || '1px dotted black';
+    this.canvas.style.border = this.border || '1px solid black';
     this.canvas.style.imageRendering = 'pixelated';
     document.body.appendChild(this.canvas);
   }
