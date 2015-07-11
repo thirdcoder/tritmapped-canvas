@@ -39,8 +39,11 @@ window.addEventListener('keypress', function(ev) {
   }
 
   var tt = fromUnicode(unichar);
+  if (tt === null) {
+    tt = 75;
+  }
 
-  if (ev.metaKey) tt = -tt; // TODO: other key
+  if (ev.metaKey || ev.altKey || ev.ctrlKey || ev.altKey) tt = -tt; // TODO: other key
 
   console.log(cursorX,cursorY);
   t.writeTrits(toTritmap9x14(tt), 9, 14, cursorY, cursorX);
