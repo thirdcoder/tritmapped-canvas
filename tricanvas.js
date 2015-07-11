@@ -21,7 +21,7 @@ function Tricanvas(opts) {
   this.imageData = this.context.createImageData(this.width, this.height);
 
   this.tritCount = this.width * this.height;
-  this.tryteCount = this.tritCount / TRITS_PER_TRYTE / TRITS_PER_TRYTE;
+  this.tryteCount = this.tritCount / TRITS_PER_TRYTE;
   if ((this.tryteCount|0) !== this.tryteCount) throw new Error('non-integral tryte count: ' + tryteCount + ', trits='+this.tritCount);
   this.tritmap = new Int8Array(this.tryteCount);
 
