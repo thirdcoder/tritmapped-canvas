@@ -8,10 +8,10 @@ var pad = require('pad');
 
 function Tricanvas(opts) {
   opts = opts || {};
-  this.width = opts.width || 405;
+  this.width = opts.width || Math.pow(3, 4)*TRITS_PER_TRYTE;
   this.height = opts.height || this.width;
-  this.scaleW = 4;
-  this.scaleH = 2;
+  this.scaleW = 1;
+  this.scaleH = 1;
   this.canvas = opts.canvas;
   if (!this.canvas) {
     this.canvas = document.createElement('canvas');
@@ -23,8 +23,8 @@ function Tricanvas(opts) {
   }
 
   this.context = this.canvas.getContext('2d');
-  this.context.width = this.width;
-  this.context.height = this.height;
+  this.canvas.width = this.width;
+  this.canvas.height = this.height;
   this.imageData = this.context.createImageData(this.width, this.height);
 
   this.tritCount = this.width * this.height;
