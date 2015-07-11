@@ -26,7 +26,7 @@ function Tricanvas(opts) {
   this.tritmap = new Int8Array(this.tryteCount);
 
   this.negativeColor = [255, 0, 0, 255];    // red
-  this.zeroColor = [0, 0, 0, 0];            // transparent black
+  this.zeroColor = [0, 0, 0, 255];          // black
   this.positiveColor = [0, 255, 0, 255];    // green
 }
 
