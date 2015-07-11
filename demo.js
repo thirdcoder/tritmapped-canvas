@@ -30,9 +30,9 @@ t.writeTrits(toTritmap9x14(-fromUnicode('T')), 9, 14, 1, 0);
 //t.writeTrits('iii',9,14);
 
 var cursorX = 0, cursorY = 0;
-window.addEventListener('keydown', function(ev) {
+window.addEventListener('keypress', function(ev) {
   console.log(ev);
-  var unichar = String.fromCharCode(ev.keyCode); // TODO: comprehensive keymap
+  var unichar = String.fromCharCode(ev.charCode); // TODO: comprehensive keymap
 
   if (!unichar) {
     unichar = '☺';
