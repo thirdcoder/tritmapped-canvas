@@ -83,7 +83,7 @@ Tricanvas.prototype.writeTrits = function(bts, width) {
 
     var row = (i / width)|0;
     var col = i % width;
-    this.writeTrit(trit, row, col);
+    this.writeTrit(trit, col, row);
   }
 };
 
