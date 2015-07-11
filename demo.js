@@ -50,9 +50,13 @@ window.addEventListener('keypress', function(ev) {
   t.refresh();
 
   ++cursorX;
-  if (cursorX > 32) {
+  if (cursorX >= t.width/9) {
     cursorX = 0;
     ++cursorY;
+  }
+  if (cursorY >= t.width/14) {
+    cursorY = 0;
+    cursorX = 0;
   }
 });
 
