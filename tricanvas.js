@@ -8,7 +8,8 @@ var pad = require('pad');
 
 function Tricanvas(opts) {
   opts = opts || {};
-  this.width = opts.width || Math.pow(3, 4)*TRITS_PER_TRYTE;
+  this.addressTryteSize = opts.addressTryteSize || 4; // 4 trytes each coordinate (ex: aaaa bbbb)
+  this.width = opts.width || Math.pow(3, this.addressTryteSize)*TRITS_PER_TRYTE;
   this.height = opts.height || this.width;
   this.scaleW = 1;
   this.scaleH = 1;
@@ -30,7 +31,8 @@ function Tricanvas(opts) {
   this.tritCount = this.width * this.height;
   this.tryteCount = this.tritCount / TRITS_PER_TRYTE;
   if ((this.tryteCount|0) !== this.tryteCount) throw new Error('non-integral tryte count: ' + tryteCount + ', trits='+this.tritCount);
-  this.tritmap = new Int8Array(this.tryteCount);
+  this.tritmap = opts.tritmap || new Int8Array(this.tryteCount);
+  if (this.tritmap.length !== this.tryteCount) throw new Error('tritmap option unexpected length: '+this.tritmap.length+' !== '+this.tryteCount);
 
   this.negativeColor = [255, 0, 0, 255];    // red
   this.zeroColor = [0, 0, 0, 255];          // black
