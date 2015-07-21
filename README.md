@@ -1,6 +1,6 @@
 # tritmapped-canvas
 
-Tricolor tritmapped canvas display
+Tricolor tritmapped canvas display for HTML5
 
 Usage:
 
@@ -14,21 +14,21 @@ Usage:
     t.refresh();
 
 Displays a visual representation of [balanced-ternary](https://github.com/thirdcoder/balanced-ternary)
-using three colors (trichromatic, comparable to monochrome on binary systems, but with three colors).
+using three colors (trichromatic, comparable to monochrome on binary systems, but with red/black/green instead of black/white).
 The display is "tritmapped" (comparable to bitmapped), meaning each trit (base 3 digit) represents a pixel.
 
 For an example, run `npm start` or visit the [live demo](http://thirdcoder.github.io/tritmapped-canvas/).
 
 Options:
 
-* `addressTryteSize` (4): number of trits for each tryte for addressing each coordinate (ex: aaaa bbbb)
+* `addressTryteSize` (4): number of trits for each tryte for addressing each coordinate (default: xxxx yyyy)
 * `width`, `height` (calculated from 3^addressTryteSize times trits/tryte(5)): pixel dimensions
-* `scaleW`, `scaleH`: scaling factors
+* `scaleW`, `scaleH` (1): scaling factors
 * `canvas`: HTML5 canvas element, created if unspecified
 * `tritmap`: typed array of trits (should be an `Int8Array` or compatible, for 5-trits/tryte, ±121)
-* `negativeColor` (`[255, 0, 0, 255]`): RGBA pixel color for negative trits
-* `zeroColor` (`[0, 0, 0, 255]`): RGBA color for zero trits
-* `positiveColor` (`[0, 255, 0, 255]`): RGBA color for positive trits
+* `negativeColor` (`[255, 0, 0, 255]`): RGBA pixel color for negative trits (default red)
+* `zeroColor` (`[0, 0, 0, 255]`): RGBA color for zero trits (default black)
+* `positiveColor` (`[0, 255, 0, 255]`): RGBA color for positive trits (default green)
 
 API:
 

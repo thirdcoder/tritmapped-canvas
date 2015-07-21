@@ -1,6 +1,6 @@
 {
   "name": "tritmapped-canvas",
-  "description": "tricolor tritmapped canvas display",
+  "description": "tricolor tritmapped canvas display for HTML5",
   "version": "0.0.1",
   "main": "tricanvas.js",
   "repository": {
@@ -11,7 +11,9 @@
     "ternary",
     "base3",
     "tritmapped-canvas",
-    "cavas",
+    "canvas",
+    "browserify",
+    "html5",
     "display"
   ],
   "scripts": {
