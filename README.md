@@ -17,7 +17,7 @@ Displays a visual representation of [balanced-ternary](https://github.com/thirdc
 using three colors (trichromatic, comparable to monochrome on binary systems, but with three colors).
 The display is "tritmapped" (comparable to bitmapped), meaning each trit (base 3 digit) represents a pixel.
 
-For an example, run `npm start`.
+For an example, run `npm start` or visit the [live demo](http://thirdcoder.github.io/tritmapped-canvas/).
 
 Options:
 
