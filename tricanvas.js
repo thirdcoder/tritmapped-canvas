@@ -34,9 +34,9 @@ function Tricanvas(opts) {
   this.tritmap = opts.tritmap || new Int8Array(this.tryteCount);
   if (this.tritmap.length !== this.tryteCount) throw new Error('tritmap option unexpected length: '+this.tritmap.length+' !== '+this.tryteCount);
 
-  this.negativeColor = [255, 0, 0, 255];    // red
-  this.zeroColor = [0, 0, 0, 255];          // black
-  this.positiveColor = [0, 255, 0, 255];    // green
+  this.negativeColor = opts.negativeColor || [255, 0, 0, 255];    // red
+  this.zeroColor = opts.zeroColor || [0, 0, 0, 255];          // black
+  this.positiveColor = opts.positiveColor || [0, 255, 0, 255];    // green
 }
 
 Tricanvas.prototype.refresh = function() {

@@ -1,11 +1,11 @@
 {
   "name": "tritmapped-canvas",
-  "description": "tricolor trit-mapped canvas display",
+  "description": "tricolor tritmapped canvas display",
   "version": "0.0.1",
   "main": "tricanvas.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:/tritmapped-canvas.git"
+    "url": "git@github.com:thirdcoder/tritmapped-canvas.git"
   },
   "keywords": [
     "ternary",
@@ -24,5 +24,6 @@
   },
   "devDependencies": {
     "raf": "^3.0.0"
-  }
+  },
+  "license": "MIT"
 }
