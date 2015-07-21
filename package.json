@@ -20,9 +20,9 @@
     "start": "wzrd demo.js"
   },
   "dependencies": {
-    "balanced-ternary": "*",
+    "balanced-ternary": "^1.0.0",
     "pad": "^0.1.0",
-    "trit-getset": "*"
+    "trit-getset": "^1.0.0"
   },
   "devDependencies": {
     "raf": "^3.0.0"
