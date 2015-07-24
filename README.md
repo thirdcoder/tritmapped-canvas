@@ -2,6 +2,8 @@
 
 Tricolor tritmapped canvas display for HTML5
 
+[![npm version](https://badge.fury.io/js/tritmapped-canvas.svg)](https://www.npmjs.com/package/tritmapped-canvas)
+
 Usage:
 
     var Tricanvas = require('tritmapped-canvas');
